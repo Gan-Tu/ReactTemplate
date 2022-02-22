@@ -1,14 +1,18 @@
 const initialState = {
-    user: null,
-    err: null,
+    users: new Map(),
+    invalidUsernames: new Set(),
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case "FETCH_USER_SUCCESS":
-            return { ...state, user: action.user };
+            let newUsers = state.users;
+            newUsers.set(action.username, action.user);
+            return { ...state, users: newUsers };
         case "FETCH_USER_FAILED":
-            return { ...state, err: action.err };
+            let newInvalidUsernames = state.invalidUsernames;
+            newInvalidUsernames.add(action.username);
+            return { ...state, invalidUsernames: newInvalidUsernames };
         default:
             return { ...state };
     }

@@ -1,12 +1,13 @@
-import useUserId from '../../hooks/userId';
+import { useUserId } from '../../hooks/users';
 
-function ExampleUserInfo() {
-  const [uid, err] = useUserId("tugan");
+function ExampleUserInfo({ username }) {
+  const [uid, name] = useUserId(username);
   return (
-    <div >
-      <p>UID: {uid}</p>
-      <p>Error: {err}</p>
-    </div>
+    <tr key={username}>
+      <td>{username ? username : 'N/A'}</td>
+      <td>{username ? name : 'N/A'}</td>
+      <td>{username ? uid : 'N/A'}</td>
+    </tr>
   );
 }
 
