@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'flowbite';
 import { Provider } from "react-redux";
 import App from './App';
 import store from './state/store';
