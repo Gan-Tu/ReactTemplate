@@ -5,28 +5,26 @@
   "dependencies": {
     "@mantine/core": "^3.6.7",
     "@mantine/hooks": "^3.6.7",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "node-fetch": "^3.2.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
-    "react-scripts": "5.0.0",
     "redux": "^4.1.2",
     "redux-saga": "^1.1.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && mv build docs",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite --host 0.0.0.0",
+    "build": "npm run lint && vite build",
+    "test": "vitest",
+    "lint": "eslint src --ext .js,.jsx"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -42,15 +40,18 @@
     ]
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.4",
+    "eslint": "^8.57.1",
+    "eslint-config-react-app": "^7.0.1",
     "flowbite": "^1.4.1",
+    "jsdom": "^26.1.0",
     "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.23"
-  },
-  "overrides": {
-    "webpack-dev-middleware": "7.4.6"
+    "tailwindcss": "^3.0.23",
+    "vite": "^6.4.6",
+    "vitest": "^4.1.12"
   },
   "engines": {
-    "node": ">=18.12.0"
+    "node": "^20.0.0 || ^22.0.0 || >=24.0.0"
   }
 }
